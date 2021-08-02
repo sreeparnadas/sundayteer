@@ -1,0 +1,344 @@
+ <style>
+
+/* .table td {
+    border: 1 px solid black;
+  }
+  .head1{
+    background-color: rgb(36, 79, 160);
+    color: black;
+    
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+
+  }
+.left-heading{
+    background-color: white;
+}
+  .first{
+    width: 110px;
+    color: black;
+    border: 1 px solid white;
+    text-align: center;
+  } */
+    
+    #pagewrap{
+        background-color:  rgb(37, 102, 65);
+        padding-right:5vw;
+        padding-left: 5vw;
+        background-color: rgb(46, 121, 75);
+        height: -webkit-fill-available;
+    }
+    #upper-div{
+        background-color:rgb(74, 141, 230);
+    }
+    #middle-div{
+       
+        height: 625px;
+        padding-left: 2px;
+        
+        
+        
+    }
+    .lower-div{
+       
+        color: oldlace;
+        font-size: xx-large;
+        height: 35px;
+        padding-top: 10 px;
+    }
+    .left-div{
+       
+        height: 550px;
+        
+    }
+    .right-div{
+        height: 550px;
+        text-align: center;
+        
+    }
+    .table td{
+            border: 1px solid black;
+            padding: 2px;
+            height: 30px;
+            
+
+    }
+    /* .table{
+         height: 1000px;
+         padding-top: 4px;
+    } */
+    .td{
+        /* height: 90px;
+        width: px; */
+        text-align: center;
+        color:black;
+        background-color: rgb(204 67 14);
+    }
+    .sm-div{
+        height: 20px;
+        width: 50px;
+        border-radius: 15%;
+        padding-right: 2px;
+        padding-left: 2px;
+        padding-bottom: 0px;
+        background-color: white;
+        font-size: large;
+    }
+    .last-td{
+        background-color: #c332cd;
+    }
+    #time-div{
+        padding-left: 10 px;
+        padding-right: 10 px;
+        padding-top: 10 px;
+        padding-bottom: 10 px;
+        
+    }
+    .left-col{
+        padding-left: 30px;
+        background-color: black;
+        
+        border: 2px solid white;
+        text-align: center;
+    }
+    .right-col{
+        padding-right: 30px;
+        background-color:  black;
+        height: 100px;
+        width: 50px;
+        border: 2px solid white;
+        text-align: center;
+    }
+    .no-col{
+        padding-right: 30 px;
+        padding-left: 70 px;
+        height: 100px;
+        width: 200px;
+        color:white;
+    }
+    .long-table{
+        border: 1px solid white;
+    }
+    .long-table1{
+        border: 1px solid white;
+        background-color: rgb(17, 104, 202);
+    }
+    .long-table2{
+        border: 1px solid white;
+        background-color: rgb(151, 25, 25);
+    }
+    #lt{
+        max-height: 600px;
+        overflow-y: scroll;
+    }
+    .big{
+        height: 60px;
+         width: 100px;
+        background-color: rgb(46, 46, 199);
+        border: 1px solid white;
+        font-size: 20px;
+        font-weight: bolder;
+        color: white;
+    }
+    .small{
+        height: 60px;
+        width: 65px;
+        background-color: brown;
+        font-size: 30px;
+        font-weight: bolder;
+        color: white;
+        border: 1px solid white;
+
+    }
+    #tab{
+        max-height: 450px;
+        overflow-y: scroll;
+        
+        
+    }
+    .new{
+        border: 1px solid rgb(211, 163, 5);
+    }
+    .header-content{
+        width: 120px; text-align: center;
+        color: #ffd363;font-weight: 700;
+    }
+    .btn{
+        /* font-size: xx-large; */
+    }
+    .single-input-box{
+        height: 30px;
+        width: 40px;
+        /* padding-right: 2px; */
+        /* padding-left: 2px; */
+        padding-top: 10px ;
+        padding-bottom: 0px;
+        background-color: white;
+        font-size: large;
+    }
+    
+</style>
+
+    <div id="pagewrap" data-ng-show="loginDetails.data.user.user_type.type_id==0 || loginDetails.data.user.user_type.type_id==3">
+        <div class="cotainer" style="background-color:  rgb(208, 212, 182);" data-ng-init="displayJodi=true">
+            <div class="d-flex " id="upper-div">
+                <div class="col-10">
+                    <div>
+                        <table >
+                            <tr>
+                                <td style="width: 120px; text-align: center; color: white;  font-size: small;" colspan="2">sikkimteer.com</td>
+                                <td style="width: 120px; text-align: center; color: white;  font-size: small;">Today Date</td>
+                                <td style="width: 120px; text-align: center; color: white;  font-size: small;">Now Time</td>
+                                <td style="width: 120px; text-align: center; color: white; font-size: x-small;">Next Draw Time</td>
+                                <td style="width: 120px; text-align: center; color: white;  font-size: small;">Time to Draw</td>
+                                <td style="width: 120px; text-align: center; color: white;  font-size: small;">CardNo & Pin</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+<!--                                    <div ng-dropdown-multiselect="" options="example14data" selected-model="example14model" checkboxes="true" extra-settings="setting1"></div>-->
+                                    <div ng-dropdown-multiselect="" options="example14data" selected-model="example14dataSelected" checkboxes="true" extra-settings="setting1"></div>
+                                </td>
+                                <!-- <td class="new header-content">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">F/R</span>
+                                       </div>
+                                       <input type="text" class="form-control">
+                                    </div>
+                                </td>
+                                <td class="new header-content">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">S/R</span>
+                                       </div>
+                                       <input type="text" class="form-control">
+                                    </div>
+                                </td> -->
+
+                                <td  class="new header-content">{{today | date}}</td>
+                                <td class="new header-content">{{hour +':'+ minute + ':'+ second}}</td>
+                                <td class="new header-content">{{drawTimeList.end_time}}</td>
+                                <td class="new header-content">{{ leftHour + ':' + leftMinute + ':' + leftsecond}}</td>
+                                <td class="new" style="width: 400px;">
+                                    <div class="input-group" ng-show="!loginDetails.data.user.id">
+                                        <input type="text" class="form-control" placeholder="Card no" ng-model="loginData.userId"  ng-click="onTextClick($event)">
+                                        <input type="password" class="form-control" placeholder="Pin" ng-model="loginData.password" ng-click="onTextClick($event)">
+                                        <div class="input-group-prepend">
+                                          <button class="btn btn-success" type="button" ng-click="validateUser()">Login</button>
+                                        </div>
+<!--                                        <div class="col-2 " id="upper-div"><a href="assets/app/_Sikkim_teer_13694337.apk" type="button" class="mt-2" ><img src="img/Android_Download_Button.png" alt="Download for android" style="height:30px;width:140px;"></a></div>-->
+                                    </div>
+                                    <div ng-show="loginDetails.data.user.id">
+                                        <input type="text" ng-model="slip_no" placeholder="Slip no">
+                                        <button class="btn btn-success" type="button" ng-click="logoutUserWithConfirmation($event)">Logout</button>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex" style="padding-top: 5px;">
+                <div class="col-1" style="border: 1px solid black;text-align: center;"><b>TR:{{allSeriesList[0].mrp}}</b></div>
+                <div class="col-3" style="border: 1px solid black;text-align: center;">
+                    <b>Qty - {{totalBoxSum}} Amt: {{totalTicketBuy}}</b>
+                </div>
+                <div class="col-4 d-flex text-center" style="border: 1px solid black;text-align: center;">
+                    <b>card no: {{loginDetails.data.user.user_id}} &nbsp; Balance: {{loginDetails.StockistToTerminal.current_balance}}</b>
+                </div>
+                <div class="col-4" style="border: 1px solid black;text-align: center;"><b>WR:90</b></div>
+            </div>
+            <div  id="middle-div" ng-show="!showReport">
+                <div class="d-flex">
+                    <div class="col left-div table" style="width: 300px;padding-top: 5px;">
+                        <table class=" table" ng-show="displayJodi">
+                            <tr ng-repeat="r in getRow(row) track by $index" ng-init="rowIndex = $index">
+                                <td class="td" ng-repeat="c in getCol(coloumn) track by $index" ng-init="columnIndex = $index">
+                                    <b style="font-weight: 900; font-size: large;">{{columnIndex==10 ? 'All-A' : rowIndex+''+columnIndex}}</b>
+
+                                    <br><input numbers-only type="tel" class="sm-div" ng-model="playInput[rowIndex][$index]" ng-keyup="verticallyHorizontallyPushValue(rowIndex,$index)" ng-click="onTextClick($event)" maxlength="3" ></td>
+                            </tr>
+
+                            <tr class="last-td">
+                                <td style="text-align: center;" ng-repeat="c in getCol(coloumn) track by $index">
+                                    <b style="font-weight: 900;">{{$index!=10?'All-B': ''}}</b><br>
+                                    <input type="tel" ng-if="$index!=10" class="sm-div" ng-click="onTextClick($event)" ng-model="playInput[10][$index]" ng-keyup="verticallyHorizontallyPushValue(10,$index)" maxlength="3" >
+
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 3px; text-align: center;">
+                <div ng-include="'ng-views-template/report_terminal.html'" ng-show="showReport"></div>
+
+                <div class="d-flex lower-div" fxLayout="row" fxLayoutAlign="space-around start" style="height: 35px; padding-left: 170px;" >
+                    <div style="padding-right:5px ;"><button type="button" class="btn btn-light btn-sm mt-1" ng-click="submitGameValues(playInput)" ng-disabled="loginDetails.data.user.user_type.type_id==0 || disableSubmitButton || showReport" style="border: 2px solid black;height: 45px; width: 160px; padding-top: 5px; background-color: gold; color: #000; font-size: large; font-weight: bold;border-radius: 10%;">Submit</button></div>
+                    <div style="padding-right: 5px;"><button type="button" class="btn btn-light btn-sm mt-1"  ng-click="clearInputBox()" ng-disabled="loginDetails.data.user.user_type.type_id==0 || showReport" style="border: 2px solid black;height: 45px; width: 160px; padding-top: 5px;background-color: rgb(173, 147, 29);  color: #000; font-size: large; font-weight: bold;border-radius: 10%;">Clear</button></div>
+                    <div style="padding-right: 5px;"><button type="button" class="btn btn-light btn-sm mt-1" ng-show="!showReport" ng-disabled="loginDetails.data.user.user_type.type_id==0" ng-click="showReport=true" style="height: 45px; width: 160px;border: 2px solid black; padding-top: 5px; color: #000; font-size: large; font-weight: bold;border-radius: 10%;background-color: turquoise;">Report</button></div>
+                    <div style="padding-right: 5px;"><button type="button" class="btn btn-light btn-sm mt-1" ng-show="showReport" ng-disabled="loginDetails.data.user.user_type.type_id==0" ng-click="showReport=false" style="height: 45px; width: 160px; padding-top: 5px;border: 2px solid black;color: #000;font-size: large;font-weight: bold;border-radius: 10%;background-color: palevioletred; ">Home</button></div>
+                    <div style="padding-right: 5px;"><a href="#!user" type="button" target="_blank" class="btn btn-light btn-sm mt-1" style="border: 2px solid black;height: 45px; width: 160px; padding-top: px;color: #000;font-size: large;font-weight: bold;border-radius: 10%; background-color: palevioletred;">Chart</a></div>
+                </div>
+            </div>
+            <div style="height: 50px;"></div>
+
+            <div class="container" id="receipt-div" ng-show="false">
+
+                <div id="print-div" style="font-weight: 700;font-size: smaller;width: 500px;">
+                    <h4 class="text-center">Rajshree</h4>
+
+                    <div class="d-flex flex-column bd-highlight">
+                        <div class="">Game Name: {{selectedGame==1? 'Jodi' : 'Single'}}</div>
+                        <div class="">Terminal: {{users.userLoginid}}</div>
+                        <div class="">Ticket id: <b>{{reportArray.barcode}} </b></div>
+                        <div class="">Draw Time: {{drawTimeList.end_time}}</div>
+                        <div class="">Ticket time {{reportArray.purchase_time}}</div>
+                        <div class="">Total point: {{totalPoint}}</div>
+                    </div>
+
+                    <hr style="border-top: dotted 1px;" />
+
+                    <div class="d-flex flex-wrap align-content-start" ng-if="inputDetails.length>0 && inputDetails[0].play_series_id==1">
+                        <div class="" ng-repeat="x in inputDetails">
+                            <u>{{x.row_num + '' + x.col_num + '-'}}</u>{{x.game_value}}&nbsp;
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap align-content-start" ng-if="inputDetails.length>0 && inputDetails[0].play_series_id==2">
+                            <h5 ng-if="inputDetails[0].val_one">Aandar</h5><br>
+                        <div class="" ng-repeat="x in inputDetails">
+                            <u>{{x.row_num + '-'}}</u>{{x.val_one}}&nbsp;
+
+                        </div>
+                        <br><br>
+
+                        <h4 ng-if="inputDetails[0].val_two">Bahar</h4><br>
+                        <div class="" ng-repeat="x in inputDetails">
+                            <u>{{x.col_num + '-'}}</u>{{x.val_two}}&nbsp;
+
+                        </div>
+                    </div>
+
+                    <hr style="border-top: dotted 1px;" />
+
+                    <div class="d-flex col-12">
+                        <angular-barcode ng-model="reportArray.barcode" bc-options="barcodeOilBill" bc-class="barcode" bc-type="img"></angular-barcode>
+                    </div>
+
+                </div>
+
+
+        </div>
+        </div>
+
+
+        <div class="d-flex font-weight-bold" style="background-color:#ee315a;font-size:30px;color:white"> <marquee style="font-weight:1000">{{scrollingMsg.message}}</marquee></div>
+            </div>

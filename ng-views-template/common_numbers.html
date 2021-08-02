@@ -1,0 +1,57 @@
+
+<div class="container pb-5" data-ng-show="loginDetails.data.user.user_type.type_id==1" style="text-align: center;">
+
+        <h3>Common Numbers</h3>
+        <div style="text-align: center; padding-left: 270px;">
+            <table class="table table-bordered" style="width: 450px;">
+                <thead>
+                <tr>                    
+                    <th scope="col" >DRAW</th>
+                    <th scope="col">HOUSE</th>
+                    <th scope="col">ENDING</th>
+                    <th scope="col" >
+                        DIRECT                    
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in commonNumbersArray">                    
+                    <td >{{drawTimes[x.draw_master_id-1].draw_name}}</td>
+                    <td style="width: 100px;"><input numbers-only type="tel" maxlength="1" class="form-control" ng-model="x.house"></td>
+                    <td style="width: 100px;"><input numbers-only type="tel" maxlength="1" class="form-control" ng-model="x.ending"></td>
+                    <td style="width: 00px;">
+                        <div class="input-group">
+                            <input numbers-only type="tel" maxlength="2" class="form-control" ng-model="x.direct_one" >
+                            <input numbers-only type="tel" maxlength="2" class="form-control" ng-model="x.direct_two">
+                        </div>
+                    </td>
+                </tr>
+                
+                                 
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="d-flex">
+            <div class="col-5" style="padding-left: 220px;">                
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" ng-click="saveCommonNumbers()">Submit</button>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <div class="d-flex" ng-show="false">
+            <div class="col-6">
+                <pre>
+                    {{commonNumbersArray | json}}                
+                </pre>
+            </div>
+            <div class="col-6">
+                <pre>
+                    {{drawTimes | json}}                
+                </pre>
+            </div>
+        </div>
+        
+
+</div>

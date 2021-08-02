@@ -1,0 +1,276 @@
+ <style>
+    #pagewrap{
+        background-color: rgb(37, 102, 65);
+        padding-right:5vw;
+        padding-left: 5vw;
+        height: -webkit-fill-available;
+    }
+    #upper-div{
+        background-color:rgb(154, 86, 202);
+    }
+    #middle-div{
+        background-color: white;
+        height: 750px;
+        padding-left: 2px;
+        
+        
+    }
+    .lower-div{
+        background-color: #003366;
+        color: oldlace;
+        font-weight: lighter;
+        height: 35px;
+    }
+    .left-div{
+        background-color: white;
+        height: 550px;
+    }
+    .right-div{
+        height: 550px;
+        text-align: center;
+        
+    }
+    .table td{
+            border: 2px solid white;
+            padding: 2px;
+            
+
+    }
+    /* .table{
+         height: 1000px;
+         padding-top: 4px;
+    } */
+    .td{
+        /* height: 90px;
+        width: px; */
+        text-align: center;
+        color:white;
+        background-color: rgb(29, 100, 29);
+    }
+    .sm-div{
+        height: 30px;
+        width: 40px;
+        padding-right: 2px;
+        padding-left: 2px;
+        padding-bottom: 0px;
+        background-color: white;
+        font-size: large;
+    }
+    .last-td{
+        background-color: limegreen;
+    }
+    #time-div{
+        padding-left: 10 px;
+        padding-right: 10 px;
+        padding-top: 10 px;
+        padding-bottom: 10 px;
+        
+    }
+    .left-col{
+        padding-left: 30px;
+        background-color: black;
+        
+        border: 2px solid white;
+        text-align: center;
+    }
+    .right-col{
+        padding-right: 30px;
+        background-color:  black;
+        height: 100px;
+        width: 50px;
+        border: 2px solid white;
+        text-align: center;
+    }
+    .no-col{
+        padding-right: 30 px;
+        padding-left: 70 px;
+        height: 100px;
+        width: 200px;
+        color:white;
+    }
+    .long-table{
+        border: 1px solid white;
+    }
+    .long-table1{
+        border: 1px solid white;
+        background-color: rgb(17, 104, 202);
+    }
+    .long-table2{
+        border: 1px solid white;
+        background-color: rgb(151, 25, 25);
+    }
+    #lt{
+        max-height: 600px;
+        overflow-y: scroll;
+    }
+    .big{
+        height: 60px;
+         width: 100px;
+        background-color: rgb(46, 46, 199);
+        border: solid white;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+    }
+    .small{
+        height: 60px;
+        width: 65px;
+        background-color: brown;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+    #tab{
+        max-height: 550px;
+        overflow-y: scroll
+        
+    }
+</style>
+    <div id="pagewrap" data-ng-show="users.person_category_id==0">
+        
+        <div class="cotainer" >
+            <div class="d-flex ">
+                <div class="col-2 " id="upper-div" style="color: yellow; text-align: right; padding-top: 10px;"><h4><b>Rajesri 10</b></h4></div>
+                <div class="col-3" id="upper-div" style="color: cornsilk; padding-top: 10px;"><b>Today : {{today | date}} {{hour +':'+ minute + ':'+ second}}</b> </div>
+                <div class="col-2 " id="upper-div"><a href="#!user" type="button" target="_blank" class="m-10" style="height: 30px; width: 150px; background-color: rgb(249 155 58);font-weight: bold ;border-radius: 10px; margin-top: 6px; color: #000; text-align: center;">RESULT CHART</a></div>
+                <!-- <div class="col-2 " id="upper-div"><div class="m-10" style="height: 30px; width: 150px; background-color: rgb(106, 228, 69); border: 1px solid black; margin-top: 6px;"></div></div> -->
+                <div class="col-2 " id="upper-div"><a href="_Goarajshree_13370238.apk" type="button" class="mt-2" ><img src="img/Android_Download_Button.png" alt="Download for android" style="height:30px;width:140px;"></a></div>
+                <div class="col-3" id="upper-div"><b>Next    07-10-2020  {{drawTimeList.end_time}} {{ leftHour + ':' + leftMinute + ':' + leftsecond}}</b></div>
+            </div>
+            <div  id="middle-div" >
+                <div class="d-flex">
+                    <div class="col-9 left-div" style="width: 300px;">
+                        <table class=" table">
+                            <tr ng-repeat="r in getRow(row) track by $index" ng-init="rowIndex = $index">
+                                <td class="td" ng-repeat="c in getCol(coloumn) track by $index" ng-init="columnIndex = $index">
+                                    <b style="font-weight: 900;font-size: large;">{{columnIndex==10 ? 'All-A' : rowIndex+''+columnIndex}}</b>
+                                    
+                                    <br><input type="tel" class="sm-div" ng-model="playInput[rowIndex][$index]" ng-click="onTextClick($event)" maxlength="3" ></td>
+                            </tr>
+                            
+                            <tr class="last-td">
+                                <td style="text-align: center;" ng-repeat="c in getCol(coloumn) track by $index"><b style="font-weight: 900;font-size: large;">{{$index!=10? 'All-B':'LP'}}</b><br>
+                                    <input type="tel" class="sm-div" ng-click="onTextClick($event)" ng-model="playInput[10][$index]" maxlength="3" ></td>
+                            </tr>                    
+                        </table>
+                        <div class="d-flex">
+                            <div class="col-6" style="color: black; text-align: right; padding-top: 10px;">Select Time :</div>
+                            <div class="col-6" style="text-align: left;">
+                                <select ng-model="selectAdvanceDraw" class="m-10" style="height: 30px; width: 150px; background-color: white; border: 1px solid black; margin-top: 6px;">
+                                    <!-- <option value="">--None--</option> -->
+                                    <option ng-repeat="option in advanceDrawTimeList" value="{{option.id}}">{{option.end_time |limitTo:5}}</option>
+                                    </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3 right-div">
+                        <div>    
+                            <div id="time-div">
+                                <h3>{{winningValue.end_time|| 'XX'}}</h3>
+                            </div>
+
+                            <div class="d-flex pr-10">
+                                <div class="col">
+                                    <!-- <odometer value=winningValue.result_row>XX</odometer>
+                                    <odometer value=winningValue.result_col>XX</odometer> -->
+                                    <img ng-if="rollUpResult" src="img/rollup/roll_default.gif" height="80px" width="80px" alt="">
+                                    <img ng-if="rollUpResult" src="img/rollup/roll_default.gif" height="80px" width="80px" alt="">
+                                    <img ng-if="!rollUpResult" ng-src="img/rollup/{{winningValue.result_row}}.PNG" height="80px" width="80px" alt="">
+                                    <img ng-if="!rollUpResult" ng-src="img/rollup/{{winningValue.result_col}}.PNG" height="80px" width="80px" alt="">
+                                </div>
+                            </div><br>
+
+                            
+                            <div id="tab">
+                                <table>
+                                    <tr ng-repeat="r in getRow(resultTableRow) track by $index" ng-init="rowIndex = $index">
+                                        <td class="big">{{(todayResult[rowIndex*2].end_time |limitTo:5)}}</td>
+                                        <td class="small">{{todayResult[rowIndex*2].result_row!=null? (todayResult[rowIndex*2].result_row +''+ todayResult[rowIndex*2].result_col):' '}}</td>
+                                        <td class="big">{{(todayResult[rowIndex*2+1].end_time |limitTo:5)}}</td>
+                                        <td class="small">{{todayResult[rowIndex*2+1].result_row!=null? (todayResult[rowIndex*2+1].result_row +''+ todayResult[rowIndex*2+1].result_col) : ' '}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="receipt-div" ng-show="false">
+                
+                <div id="print-div">
+                    <h4 class="text-center">Rajshree</h4>
+                    
+                    <div class="d-flex flex-column bd-highlight">
+                        <div class="">Game Name: {{selectedGame==1? 'Jodi' : 'Single'}}</div>
+                        <div class="">Terminal: {{users.userLoginid}}</div>
+                        <div class="">Ticket id: <b>{{reportArray.barcode}} </b></div>
+                        <div class="">Draw Time: {{drawTimeList.end_time}}</div>
+                        <div class="">Ticket time {{reportArray.purchase_time}}</div>
+                        <div class="">Total point: {{totalPoint}}</div>
+                      </div>
+
+                    <hr style="border-top: dotted 1px;" />                                
+
+                    <div class="d-flex flex-wrap align-content-start" ng-if="inputDetails.length>0 && inputDetails[0].play_series_id==1">
+                        <div class="col-5" ng-repeat="x in inputDetails" style="background-color: #adff2f;">
+                            <u>{{x.row_num + '' + x.col_num + '-'}}</u>{{x.game_value}}&nbsp;
+                            
+                        </div>
+                    </div>  
+                    
+                    <div class="d-flex flex-wrap align-content-start" ng-if="inputDetails.length>0 && inputDetails[0].play_series_id==2">
+                            <h5 ng-if="inputDetails[0].val_one">Aandar</h5><br>
+                        <div class="" ng-repeat="x in inputDetails">
+                            <u>{{x.row_num + '-'}}</u>{{x.val_one}}&nbsp;
+                            
+                        </div>
+                        <br><br>
+
+                        <h4 ng-if="inputDetails[0].val_two">Bahar</h4><br>
+                        <div class="" ng-repeat="x in inputDetails">
+                            <u>{{x.col_num + '-'}}</u>{{x.val_two}}&nbsp;
+                            
+                        </div>
+                    </div>                        
+                    
+                    <hr style="border-top: dotted 1px;" />                       
+
+                    <div class="d-flex col-12">
+                        <angular-barcode ng-model="reportArray.barcode" bc-options="barcodeOilBill" bc-class="barcode" bc-type="img"></angular-barcode>
+                    </div>
+                    
+                </div>
+    
+
+        </div>
+
+
+
+            <div class="d-flex lower-div" style="height: 45px;">
+                <div class="col-2  pl-10" style="color: black; text-align: right;padding-top: 10px; font-weight: bold;">Card No.</div>
+                <div class="col-2"><input type="text" class="m-10" ng-model="loginData.userId" ng-click="onTextClick($event)" style="height: 25px; width: 200px; background-color: white; border: 1px solid black; margin-top: 10px;"></div>
+                <div class="col-2" style="color: black; text-align: right; padding-top: 10px; font-weight: bold;">Pin no.</div>
+                <div class="col-2"><input type="password" class="m-10" ng-model="loginData.password" ng-click="onTextClick($event)" style="height: 25px; width: 100px; background-color: white; border: 1px solid black; margin-top: 10px;"></div>
+                <div class="col-4" style="padding-top: 5px;"><button type="button" class="btn btn-light btn-sm mt-1" ng-click="validateUser()" style="height: 25px;">Log In {{loginDetails.userID!=null}} {{loginDetails.userType.typeID==1}}</button></div>
+            </div>
+        </div>
+
+        <div class="d-flex font-weight-bold" style="background-color:#ee315a;font-size:30px;color:white"> <marquee style="font-weight:1000">{{scrollingMsg.message}}</marquee></div>
+            </div>
+    </div>
+
+            
+            
+
+            
+
+        
+
+
+
+
+
+
+

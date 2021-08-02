@@ -1,0 +1,540 @@
+
+        <style type="text/css">
+
+
+            .awesome{
+                        font-size: 50px;
+                        text-shadow: 2px 2px 1px rgb(1, 153, 255);                        
+                        color:  rgb(255, 79, 25);                       
+                        /* font-weight: bold; */
+                        font-weight: 700;
+                    
+                }
+
+            @function color($key: "blue") {
+            @return map-get($colors, $key);
+            }
+
+            @function theme-color($key: "primary") {
+            @return map-get($theme-colors, $key);
+            }
+
+            @function gray($key: "50") {
+            @return map-get($grays, $key);
+            }
+            .my-table tr th{
+                border: 2px solid black;
+            }
+            .my-table tr td{
+                border: 2px solid black;
+            }
+
+            .my-table-result tr th{
+                border: 1px solid black;
+            }
+            .my-table-result tr td{
+                border: 1px solid black;
+            }
+            .my-table-result tr{
+                line-height: 0px;
+                border: 2px solid black;
+
+            }
+
+            /*************Css For Gallery***************/
+            div.gallery {
+                margin: 5px;
+                border: 1px solid #ccc;
+                float: left;
+                width: 100px;
+            }
+
+            div.gallery:hover {
+                border: 2px solid #777;
+            }
+
+            div.gallery img {
+                width: 100%;
+                height: auto;
+            }
+
+            div.desc {
+                padding: 15px;
+                text-align: center;
+            }
+
+            /* *** */
+            .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    /* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 0px;
+  /* width: 5px; */
+  margin: 0 2px;
+  background-color: #bbb;
+  /* border-radius: 50%; */
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: white;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  /* background-color: white; */
+}
+.caption{
+    color: black;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.bordered-div{
+    transition: all linear 0.5s;
+    background-color: rgba(190, 252, 76, 0.39);
+    border: 2px solid rgb(190, 252, 76);
+    
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}       
+            /* *** */
+
+
+            .container-fluid{
+                padding-left: 0px!important;
+            }
+
+
+        </style>
+
+        <div class="row d-flex" style="background-color: cornflowerblue;">
+            <div class="col-3">
+                <img src="img/teer-icon.png" class="img-responsive mt-1 mb-1" height="80" width="80" align="left">
+            </div>
+            <div class="col-6">
+                <!-- LOGIN ID<input type="text" value="">
+                PASSWORD <input type="text" value=""> -->
+                <div class="col-2 " id="upper-div"><a href="assets/app/_Sikkim_Teer_13695085.apk" type="button" class="mt-2" ><img src="img/Android_Download_Button.png" alt="Download for android" style="height:30px;width:140px;"></a></div>
+            </div>
+            
+            <div class="col-3">                 
+            </div>
+
+        </div>
+        <div class="row text-danger"><marquee><h1>WELCOME TO SIKKIM TEER RESULTS</h1></marquee></div>
+        <div class="row d-flex bg-light">
+            <div class="col-1"></div>
+            <div class="col-10 text-center table-responsive">
+                <p class="text-center"><?php echo get_current_date();?></p>
+                <table class="table table-bordered my-table mt-1">
+                    <thead>
+                    <tr>
+                        <th colspan="4" style="font-size: larger;">Sikkim Result | Sikkim Teer | Sikkim Today </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="background-color:#baf17f">
+                        <td class="awesome" colspan="2" >F/R({{(todayResult[0].end_time | limitTo:5) + ' ' + todayResult[0].meridiem}})</td>
+                        <td class="awesome" colspan="2" >S/R({{(todayResult[1].end_time | limitTo:5) + ' ' + todayResult[1].meridiem}})</td>
+                    </tr>
+                    <tr>
+                        <td class="awesome" colspan="2">{{todayResult[0].result_row!=null ? todayResult[0].result_row + '' + todayResult[0].result_col : 'XX'}}</td>
+
+                        <td class="awesome" colspan="2" > {{todayResult[1].result_row!=null ? todayResult[1].result_row + '' + todayResult[1].result_col : 'XX'}}</td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+        <div class="row d-flex bg-dark text-center">
+            <div class="bg-dark text-white col-12 text-center" style="text-shadow: 2px 2px 5px red;">
+                <h1> Sikkim Result | Sikkim Teer | Sikkim Today </h1>
+
+            </div>
+        </div>
+
+        <div class="row d-flex bg-light mb-1 mt-1">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <button type="button" class="btn btn-primary" ng-click="showResult=true">Previous Result&nbsp;</button>
+                <button type="button" class="btn btn-warning" ng-click="showResult=false" ng-show="showResult">&nbsp;Hide</button>
+                <a href="#!previousResult" target="_blank" class="btn pull-right" role="button">Show more</a>
+            </div>
+            <div class="col-10"></div>
+        </div>
+
+        <div class="row d-flex bg-maroon text-center" ng-show="showResult">
+
+            <div class="col-1 bg-gray-2"></div>
+            <div class="col-10 text-center table-responsive bg-gray-2">
+                <table class="table table-bordered my-table-result mt-1">
+                    <thead>
+                    <tr>
+                        <th >Date</th>
+                        <th>FR</th>
+                        <th>SR</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="x in previousRecordsList">
+                    <tr>
+                        <td> {{x.game_date}}</td>
+                        <td>{{x.fr!=null ? x.fr < 10? '0' + x.fr : x.fr : 'XX' }} </td>
+                        <td>{{x.sr!=null? x.sr < 10? '0' + x.sr : x.sr : 'XX' }} </td>
+                    </tr>
+                    </tbody>
+                    
+                </table>
+                
+            </div>
+            <div class="col-1 bg-gray-2"></div>
+
+
+
+            <!--testing-->
+        </div>        
+
+        <!-- *** -->
+
+        <div class="d-flex">
+            <div class="col-12">
+            <div style="text-align: center;padding-right: 50px; padding-bottom: 10px;">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img src="img/teer1.jfif" alt="" width="650px" height="200px" ></a>
+                                <div class="text caption"id="black"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/teer2.jfif" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/teer3.jfif" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="250px" height="200px" src="img/teer4.jfif" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/gallery/1.1.jpg" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/gallery/2.2.jpg" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/gallery/3.jpg" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/gallery/4.jpg" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                        <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <a target="_blank" href=""><img width="650px" height="200px" src="img/gallery/5.jpg" alt=""></a>
+                                <div class="text caption"></div>
+                        </div>
+                    
+                    </div>
+                    <div class="" style="background-color: white;">
+                        <div class="d-flex" style="text-align:right">
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                                <div class="dot col-1"></div> 
+                        </div>
+                    </div>
+                            
+
+                    <script>
+                                var slideIndex = 0;
+                                showSlides();//methode calling
+                                
+                                function showSlides() {
+                                var i;
+                                var slides = document.getElementsByClassName("mySlides");
+                                var dots = document.getElementsByClassName("dot");
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";  
+                                }
+                                slideIndex++;
+                                if (slideIndex > slides.length) {slideIndex = 1}    
+                                for (i = 0; i < dots.length; i++) {
+                                    dots[i].className = dots[i].className.replace(" active", "");
+                                }
+                                slides[slideIndex-1].style.display = "block";  
+                                dots[slideIndex-1].className += " active";
+                                setTimeout(showSlides, 2000); // Change image every 2 seconds
+                                }
+                    </script>
+                </div>
+            </div>
+            <!-- <div class="col-10"> -->
+                
+            <!-- </div> -->
+
+
+            
+            
+        </div>
+
+
+        <div style="padding-top: 10px;" class="container" ng-show="showCommonNumbers">
+            <div class="d-flex">
+                <div class="col-3"></div>
+                <div class="col-6" style="color: white; text-align: center;">
+                    <h4>COMMON NUMBERS</h4>
+                    <button type="button" class="close" aria-label="Close" ng-click="showCommonNumbers=false">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+                <div class="col-3">                 
+                </div>
+            </div>
+            <div id="highlight" class="container highlight" style="padding-top: 10px; width: 600px;">
+                <table class="table table-bordered" style="background-color: white;">
+                    <thead style="background-color: rgb(161, 105, 252);">
+                    <tr>                    
+                        <th scope="col" style="font-size: x-large; text-align: center;">DIRECT</th>
+                        <th scope="col" style="font-size: x-large; text-align: center;">HOUSE</th>
+                        <th scope="col" style="font-size: x-large; text-align: center;">ENDING</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>                    
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[0].direct_one || 'xx'}} , {{commonNumbers[0].direct_two || 'xx'}}</td>
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[0].house || 'xx'}}</td>
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[0].ending || 'xx'}}</td>
+                    </tr>
+                    <tr>
+                        
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[1].direct_one || 'xx'}} , {{commonNumbers[1].direct_two || 'xx'}}</td>
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[1].house || 'xx'}}</td>
+                        <td style="font-size: xx-large; text-align: center;">{{commonNumbers[1].ending || 'xx'}}</td>
+                    </tr>                  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="d-flex" style="padding-top: 20px;">
+            <div class="col-4">
+                <a href=""><img src="img/common.jpg" alt="" width="400px" ng-click="highlightCommonNumberDiv()"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/Deals.jpg" alt="" width="400px"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/dream.jpg" alt="" width="400px"></a>
+            </div>
+        </div>
+
+        <div class="d-flex" style="padding-top: 20px;">
+            <div class="col-4">
+                <a href=""><img src="img/analytics.jpg" alt="" width="400px"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/targetgame.jpg" alt="" width="400px"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/teerPreviousNumbers.jpg" alt="" width="400px"></a>
+            </div>
+        </div>
+
+        <div class="d-flex" style="padding-top: 20px;">
+            <div class="col-4">
+                <a href=""><img src="img/TeerCalendar.jpg" alt="" width="400px" ng-click="highlightCommonNumberDiv()"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/ReputedCounter.jpg" alt="" width="400px"></a>
+            </div>
+            <div class="col-4">
+                <a href=""><img src="img/OnlineShopping.jpg" alt="" width="400px"></a>
+            </div>
+        </div>
+        
+
+
+        
+
+
+
+
+
+        <div>
+            <p class="font-italic text-justify" style="font-size: 8px"> Sikkim Result | Sikkim Teer | Sikkim Today
+
+            Our site is only for those users who are over 18 years of age or you can leave our site yourself now. And if you continue browsing our site then you are disobeying the rules of our
+            website. Our site is not involved in any gambling. Our site only provides teer results collected from (Sikkim Teer Association). Our site is for informational purpose only!
+            </p>
+        </div>
+
+
+
+        <!-- **** -->
+
+
+
+
+        <div class="row d-flex bg-dark text-center">
+            <CustomSearchEngine volunteers="false"
+                                keywords="climate &quot;global warming&quot; &quot;greenhouse gases&quot;"
+                                language="en"
+                                visible="false"
+                                encoding="UTF-8">
+                <Title>RealClimate</Title>
+                <Description>Science behind global warming and climate change.</Description>
+                <Context>
+                    <BackgroundLabels>
+                        <Label name="_cse_hwbuiarvsbo" mode="FILTER"/>
+                        <Label name="_cse_exclude_hwbuiarvsbo" mode="ELIMINATE"/>
+                    </BackgroundLabels>
+                </Context>
+                <LookAndFeel nonprofit="false"/>
+                <ImageSearchSettings enable="true" layout="1" />
+            </CustomSearchEngine>
+
+        </div>
+
+
+        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg"  width="500px" height="200px" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG8OhYeX68EZ2h45QXWR6TCr4npMATzdtdMdqwFeedFOLQfO0ArQWAQqcAeg0TqX36IIo&usqp=CAU"  width="500px" height="200px" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://mymodernmet.com/wp/wp-content/uploads/2019/12/photos-of-indonesia-rarindra-prakarsa-4.jpg"  width="500px" height="200px" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div> -->
+
+
+        
+
+
+
+
+
+
+
+
+
+
+        <!-- <script>
+            (function() {
+                var cx = '010448348182000047343:e0wpdzmykmu';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+        </div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-6198621255698529",
+                enable_page_level_ads: true
+            });
+        </script> -->
+
+
+
+        <?php
+    }
+    public function angular_view_login(){
+        ?>
+        <style type="text/css">
+            body,html {
+                height: 50%;
+                /*background-color: green;*/
+                background: linear-gradient(to bottom, #0D3349 0%, #4F5155 400%);
+            }
+
+        </style>
+        
+        <!--/row-->
+
+
+
+
