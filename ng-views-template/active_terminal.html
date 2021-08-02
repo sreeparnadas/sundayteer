@@ -1,0 +1,60 @@
+<a href="#!" data-ng-if="loginDetails.data.user.user_type.type_id==0"><h1>Please Login</h1></a>
+    <div class="d-flex col-12" data-ng-show="loginDetails.data.user.user_type.type_id==1">
+    <div class="col-12">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-style="tab==2 && selectedTab" href="#" role="tab" ng-click="setTab(2)"><i class="fa fa-envelope"></i>Active Terminal</a>
+            </li>
+        </ul>
+        <!-- Tab panels -->
+        <div class="tab-content">
+            <!--Panel 1-->
+            <div ng-show="isSet(1)">
+                <div id="my-tab-1">
+                    <style type="text/css">
+                        .bee{
+                            background-color: #d9edf7;
+                        }
+                        .banana{
+                            background-color: #c4e3f3;
+                        }
+                        #stockist-table-div table th{
+                            background-color: #1b6d85;
+                            color: #a6e1ec;
+                            cursor: pointer;
+                        }
+                        a[ng-click]{
+                            cursor: pointer;
+                        }
+
+                    </style>
+                    <p><input type="text" ng-model="searchItem"><span class="glyphicon glyphicon-search"></span> Search </p>
+                    <div id="stockist-table-div" class="d-flex">
+                        <table cellpadding="0" cellspacing="0" class="table table-bordered">
+                            <tr>
+                                <th>SL></th>
+                                <th ng-click="changeSorting('terminal_name')">Terminal Name<i class="glyphicon" ng-class="getIcon('terminal_name')"></i></th>
+                                <th ng-click="changeSorting('user_id')">Login Id<i class="glyphicon" ng-class="getIcon('user_id')"></i></th>
+                                <th ng-click="changeSorting('user_password')">Online<i class="glyphicon" ng-class="getIcon('user_password')"></i></th>
+                                <th>Action<i class="glyphicon" ng-class="getIcon('stockist_name')"></i></th>
+                            </tr>
+                            <tbody ng-repeat="x in onlineTerminal">
+                            <tr>
+                                <td>{{ $index+1}}</td>
+                                <td>{{x.user_name}}</td>
+                                <td>{{x.email}}</td>
+                                <td class="text-center" style="color: green;font-size: larger;">&#8226;</td>
+                                <td><button type="button" class="btn btn-secondary" ng-click="forceLogoutActiveTerminal(x)">Force Logout</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div class="text-center" ng-if="onlineTerminal.length==0">No one is online</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

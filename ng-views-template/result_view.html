@@ -1,0 +1,77 @@
+<style type="text/css">
+
+  .big{
+          height: 60px;
+          width: 30%;
+          background-color: rgb(46, 46, 199);
+          border: solid white;
+          font-size: xxx-large;
+          font-weight: bold;
+          color: white;
+    }
+    .small{
+        height: 60px;
+        width: 65px;
+        background-color: brown;
+        font-size: xxx-large;
+        font-weight: bold;
+        color: white;
+    }
+    .tab{
+      max-height: 500px;
+      overflow-y: scroll 
+    }
+  
+  </style>
+
+
+<div class="d-flex justify-content-center" style="background-color: deepskyblue; min-height: 2000px;text-align: center;" data-ng-controller="PlayController">
+
+    <div style="text-align: center;">
+      <div style="text-align: center;background-color: white;height: 100px;width: 800px;color: blue;font-size: x-large;border: 10 px solid black;margin-top: 30px;">
+        <b>RAJSHREE10 DAILY CHART</b><br>
+
+        <div class="d-flex justify-content-center bd-highlight m-3">
+            <div class="bd-highlight">Select Date</div>
+            <div><input type="date" class="form-control" value="result_date" ng-model="result_date"  ng-change="changeDateFormat(result_date)" readonly></div>
+            <div><input type="date" class="form-control" ng-model="result_date" ng-change="changeDateFormat(result_date)"></div>
+            <div><input type="button" value="Search" ng-click="getResultByDate(result_date)"></div>
+        </div>
+
+      </div>
+      
+      <div style="text-align: center;background-color: white;min-height: 800px;width: 800px;">
+        <div class="">
+          <table width="100%">
+            <!-- <thead>
+              <tr >
+                <th style="width: 400px; text-align: center; border: 1px solid black; height: 30px;">Time</th>
+                <th style="width: 400px;text-align: center;border: 1px solid black;height: 30px;">Result</th>
+              </tr>
+            </thead> -->
+
+            <tbody>
+              <!-- <tr ng-repeat="x in resultBydate" style="font-size: xx-large;font-weight: bold;">
+                <td style="width: 400px; text-align: center;border: 1px solid black;height: 30px;">{{x.end_time}}</td>
+                <td style="width: 400px;text-align: center;border: 1px solid black;height: 30px;">{{x.result_row!=null? x.result_row+''+x.result_col : ''}}</td>
+              </tr>   -->
+
+              <tr ng-repeat="r in getRow(resultTableRow) track by $index" ng-init="rowIndex = $index">
+                <td class="big">{{(resultBydate[rowIndex*2].end_time |limitTo:5)}}</td>
+                <td class="small">{{resultBydate[rowIndex*2].result_row!=null? (resultBydate[rowIndex*2].result_row +''+ resultBydate[rowIndex*2].result_col):' '}}</td>
+                <td class="big">{{(resultBydate[rowIndex*2+1].end_time |limitTo:5)}}</td>
+                <td class="small">{{resultBydate[rowIndex*2+1].result_row!=null? (resultBydate[rowIndex*2+1].result_row +''+ resultBydate[rowIndex*2+1].result_col) : ' '}}</td>
+              </tr>
+              <!-- <tr>
+                <td colspan="2" style="background-color: #1b6ff5;text-align: center;color: white;">
+                  Purchase of lottery using this website is strictly prohibited in the states where lotteries are banned. You must be above 18 years to play Online Lottery.
+                  rajshri10.com all rights reserved. 
+                </td>
+              </tr> -->
+            </tbody>     
+            
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
