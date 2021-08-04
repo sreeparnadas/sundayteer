@@ -7,7 +7,7 @@ var app = angular.module('myApp', ["ngRoute","angular-md5","ngCookies","xeditabl
 var current_url=window.location.href;
 var urlArray=current_url.split("/");
 api_url1=urlArray[0]+"//"+urlArray[2]+"/"+"photography_api"+"/"+"public/api";
-api_url=urlArray[0]+"//"+urlArray[2]+"/"+"sikkim_teer_api"+"/"+"public/api";
+api_url=urlArray[0]+"//"+urlArray[2]+"/"+"shillong_teer_api"+"/"+"public/api";
 
 //FOR SERVER
 // var base_url=urlArray[0]+'/'+urlArray[1]+'/'+urlArray[2]+'/';
