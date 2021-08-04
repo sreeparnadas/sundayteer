@@ -50,6 +50,8 @@ app.config(function($routeProvider){
     }).when("/previousResult",{
         templateUrl : "ng-views-template/previous_result.html",
         controller: "MainController"
+    }).when("/dreamNumber",{
+        templateUrl : "ng-views-template/dream.html"
     }).when("/message",{
         templateUrl : "ng-views-template/message.html",
         controller: "ResultCtrl"
