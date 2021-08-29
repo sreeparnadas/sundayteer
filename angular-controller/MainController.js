@@ -1,7 +1,7 @@
 app.controller('MainController', function($cookies,$scope,$mdDialog,$timeout,$interval,toaster,$http,UserService,$q,RegistrationService,ParticipantService,$window,proofService,localStorageService,$rootScope,$auth,authFact) {
 
     //for showing developer area, creating a developer mode object
-    $scope.title="Sunday Teer";
+    $scope.title="ShillongLuckyTeer";
     $scope.showReport=false;
     $scope.developerMode={};
     $scope.developerMode.isEnabled=true;
