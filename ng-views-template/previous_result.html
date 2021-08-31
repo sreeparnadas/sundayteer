@@ -9,20 +9,47 @@
         </div>
     </div>
 
+<!--    <table class="table table-bordered my-table-result mt-1">-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>Date</th>-->
+<!--                <th>FR</th>-->
+<!--                <th>SR</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr ng-repeat="x in previousResultByDate">-->
+<!--            <td>{{x.game_date}}</td>-->
+<!--            <td>{{("00"+x.fr_value).slice(-2)}}</td>-->
+<!--            <td>{{("00"+x.sr_value).slice(-2)}}</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
     <table class="table table-bordered my-table-result mt-1">
         <thead>
-            <tr>
-                <th>Date</th>
-                <th>FR</th>
-                <th>SR</th>
-            </tr>
+        <tr>
+            <th ></th>
+            <th colspan="2">Evening</th>
+            <th colspan="2">Night</th>
+        </tr>
+        <tr data-ng-controller="CommonNumbersCtrl">
+            <th >Date</th>
+            <th>{{drawTimes[0].end_time | limitTo:5}}{{drawTimes[0].meridiem}}</th>
+            <th>{{drawTimes[1].end_time | limitTo:5}}{{drawTimes[1].meridiem}}</th>
+            <th>{{drawTimes[2].end_time | limitTo:5}}{{drawTimes[2].meridiem}}</th>
+            <th>{{drawTimes[3].end_time | limitTo:5}}{{drawTimes[3].meridiem}}</th>
+        </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat="x in previousResultByDate">
-            <td>{{x.game_date}}</td>
-            <td>{{("00"+x.fr_value).slice(-2)}}</td>
-            <td>{{("00"+x.sr_value).slice(-2)}}</td>
+        <tbody ng-repeat="x in previousRecordsList">
+        <tr>
+            <td> {{x.game_date}}</td>
+            <td>{{x.first!=null ? x.first < 10? '0' + x.first : x.first : 'XX' }} </td>
+            <td>{{x.second!=null? x.second < 10? '0' + x.second : x.second : 'XX' }} </td>
+            <td>{{x.third!=null? x.third < 10? '0' + x.third : x.third : 'XX' }} </td>
+            <td>{{x.fourth!=null? x.fourth < 10? '0' + x.fourth : x.fourth : 'XX' }} </td>
         </tr>
         </tbody>
+
     </table>
 </div>

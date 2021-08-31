@@ -415,8 +415,10 @@ app.controller('MainController', function($cookies,$scope,$mdDialog,$timeout,$in
     $scope.start_result_date = new Date($scope.todayDate.getFullYear(),$scope.todayDate.getMonth(),$scope.todayDate.getDate()-20);
     $scope.end_result_date = $scope.todayDate;
 
-    $scope.previousResultByDate = null;
+
     $scope.showReport = false;
+
+    $scope.previousResultByDate = null;
 
     $scope.getResultListByDate=function(startDate, endDate){
 
@@ -436,8 +438,9 @@ app.controller('MainController', function($cookies,$scope,$mdDialog,$timeout,$in
                 }
                 ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).then(function(response){
-                $scope.previousResultByDate = response.data.data;
-                
+                console.log(response.data);
+                $scope.previousResultByDate = response.data;
+
             });
 
     };
@@ -446,7 +449,7 @@ app.controller('MainController', function($cookies,$scope,$mdDialog,$timeout,$in
     $scope.previous_result_start_result_date = new Date($scope.todayDate.getFullYear(),$scope.todayDate.getMonth(),$scope.todayDate.getDate()-30);
     $scope.previous_result_end_result_date = $scope.todayDate;
 
-    $scope.getResultListByDate($scope.previous_result_start_result_date, $scope.previous_result_end_result_date);
+    $scope.getResultListByDate($scope.start_result_date, $scope.end_result_date);
     
 
 
@@ -564,7 +567,7 @@ app.controller('MainController', function($cookies,$scope,$mdDialog,$timeout,$in
             data: {},
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(function (response){
-            $scope.previousRecordsList = response.data;
+            $scope.previousRecordsList = response.data
         });
 	};
     $scope.showPreviousResults();
